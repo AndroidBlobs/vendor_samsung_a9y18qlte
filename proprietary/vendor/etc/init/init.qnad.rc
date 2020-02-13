@@ -1,0 +1,81 @@
+on fs    
+    wait /dev/block/bootdevice/by-name/nad_refer
+    chown system radio /nad_refer
+    chmod 0777 /nad_refer
+    restorecon -R /nad_refer
+    
+on boot
+# QMVS
+    mkdir /nad_refer/NAD_SMD/ 0777 system system
+    mkdir /nad_refer/NAD_MAIN/ 0777 system system
+    mkdir /nad_refer/NAD/ 0777 system sytem
+    mkdir /nad_refer/LASTFAIL/ 0777 system system
+
+# QMVS for MAIN
+    mkdir /sys/class/sec/sec_nad_balancer/ 0777 root root
+
+on late-init
+# Permissions for NAD
+    chown system radio /sys/class/sec/sec_nad/nad_stat
+    chmod 0664 /sys/class/sec/sec_nad/nad_stat
+    chown system radio /sys/class/sec/sec_nad/nad_erase
+    chmod 0664 /sys/class/sec/sec_nad/nad_erase
+    chown system radio /sys/class/sec/sec_nad/nad_acat
+    chmod 0664 /sys/class/sec/sec_nad/nad_acat
+    chown system radio /sys/class/sec/sec_nad/nad_dram
+    chmod 0664 /sys/class/sec/sec_nad/nad_dram
+    chown system radio /sys/class/sec/sec_nad/nad_logs
+    chmod 0664 /sys/class/sec/sec_nad/nad_logs
+    chown system radio /sys/class/sec/sec_nad/nad_end
+    chmod 0664 /sys/class/sec/sec_nad/nad_end
+    chown system radio /sys/class/sec/sec_nad_balancer/balancer
+    chmod 0664 /sys/class/sec/sec_nad_balancer/balancer
+    chown system radio /sys/class/sec/sec_nad_balancer/timeout
+    chmod 0664 /sys/class/sec/sec_nad_balancer/timeout
+
+    chown system radio /system/bin/qnad/aes_test
+    chmod 0777 /system/bin/qnad/aes_test
+    chown system radio /system/bin/qnad/aes_test_static
+    chmod 0777 /system/bin/qnad/aes_test_static
+    chown system radio /system/bin/qnad/hmac_test
+    chmod 0777 /system/bin/qnad/hmac_test
+    chown system radio /system/bin/qnad/hmac_test_static
+    chmod 0777 /system/bin/qnad/hmac_test_static
+    chown system radio /system/bin/qnad/cpu_clk_switch
+    chmod 0777 /system/bin/qnad/cpu_clk_switch
+    chown system radio /system/bin/qnad/ddr_clk_switch
+    chmod 0777 /system/bin/qnad/ddr_clk_switch
+    chown system radio /system/bin/qnad/icache_stress
+    chmod 0777 /system/bin/qnad/icache_stress
+    chown system radio /system/bin/qnad/cache_coherency
+    chmod 0777 /system/bin/qnad/cache_coherency
+    chown system radio /system/bin/qnad/suspend_resume
+    chmod 0777 /system/bin/qnad/suspend_resume
+    chown system radio /system/bin/qnad/lpm_stats
+    chmod 0777 /system/bin/qnad/lpm_stats
+    chown system radio /system/bin/qnad/QMESA_64
+    chmod 0777 /system/bin/qnad/QMESA_64
+    chown system radio /system/bin/qnad/QMESA_32
+    chmod 0777 /system/bin/qnad/QMESA_32
+    chown system radio /system/bin/qnad/NOTICE
+    chmod 0777 /system/bin/qnad/NOTICE
+    chown system radio /system/bin/qnad/qnad.sh
+    chmod 0777 /system/bin/qnad/qnad.sh
+    chown system radio /system/bin/qnad/qnad_main.sh
+    chmod 0777 /system/bin/qnad/qnad_main.sh
+    chown system radio /system/bin/qnad/qnad_util.sh
+    chmod 0777 /system/bin/qnad/qnad_util.sh
+    chown system radio /system/bin/qnad/remove_files.sh
+    chmod 0777 /system/bin/qnad/remove_files.sh 
+
+    chown system radio /sys/devices/virtual/sec/switch/usb_to_ta
+    chmod 0777 /sys/devices/virtual/sec/switch/usb_to_ta
+   
+    chown system radio /nad_refer/NAD_SMD
+    chmod 0777 /nad_refer/NAD_SMD
+    chown system radio /nad_refer/NAD_MAIN
+    chmod 0777 /nad_refer/NAD_MAIN
+    chown system radio /nad_refer/NAD
+    chmod 0777 /nad_refer/NAD/
+    chown system radio /nad_refer/LASTFAIL
+    chmod 0777 /nad_refer/LASTFAIL
